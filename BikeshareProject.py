@@ -1,20 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-pip install pandas
-
-
-# In[ ]:
-
-
+# Pip install pandas
 import bike
 
-
-# In[2]:
-
+# Import the necessary libraries
 
 import subprocess
 
@@ -22,7 +9,7 @@ try:
     import pandas
 except ImportError:
     subprocess.check_call(['pip', 'install', 'pandas'])
-    
+
 import pandas as pd
 import time
 
@@ -143,16 +130,6 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-def display_raw_data(df):
-    i = 0
-    while True:
-        show_data = input("Would you like to see 5 lines of raw data? (yes/no) ").lower()
-        if show_data == 'yes':
-            print(df.iloc[i:i+5])
-            i += 5
-        else:
-            break
-
 def main():
     while True:
         city, month, day = get_filters()
@@ -162,7 +139,6 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        display_raw_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
@@ -170,16 +146,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
